@@ -1,6 +1,5 @@
 ---
-title: "My title"
-subtitle: "Toronto Marriage Licenses by Time Period"
+title: "Toronto Marriage Licenses by Time Period"
 author: 
   - Lexun Yu
 date: today
@@ -10,3 +9,35 @@ format: pdf
 number-sections: true
 bibliography: references.bib
 ---
+
+This document uses R [@citeR] to process the data. ggplot2 [@ggplot2] and opendatatoronto [@opendatatoronto]te is also used.
+
+<!-- Read the data -->
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(readr)
+library(here)
+
+data <- read_csv(here("data/analysis_data/analysis_data.csv"))
+```
+
+
+# Line plot of toronto marriage license data
+```{r}
+#| label: fig-marriage
+#| fig-cap: Toronto Marriage Licenses number vs time
+#| echo: false
+data |> 
+  ggplot(mapping = aes(x = date, y = marriage_licenses)) +
+  geom_line() +
+  theme_minimal() +
+  labs(x = "Year", y = "Number of Marriage Licenses", caption = "Data source: Open Data Toronto.")
+```
+
+@fig-marriage shows the issue of Toronto's marriage licenses over time between 2011 and 2024. The number of marriage licnese issued ranges from 0 to 1300 between 2011 and 2020, with an increasing trend between 2020 and 2024.
+
+# Bibliography
