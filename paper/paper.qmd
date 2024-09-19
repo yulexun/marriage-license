@@ -1,13 +1,11 @@
 ---
 title: "My title"
-subtitle: "My subtitle if needed"
+subtitle: "Toronto Marriage Licenses by Time Period"
 author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
+  - Lexun Yu
 date: today
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "This document visualize the data of Toronto's marriage license statistics with a line plot"
 format: pdf
 number-sections: true
 bibliography: references.bib

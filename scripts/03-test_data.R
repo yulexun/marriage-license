@@ -1,15 +1,26 @@
 #### Preamble ####
-# Purpose: Tests... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Tests the simulated data
+# Author: Lexun Yu
+# Date: 19 Sep 2024
+# Contact: lx.yu@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites: None
 
 
 #### Workspace setup ####
 library(tidyverse)
-# [...UPDATE THIS...]
 
 #### Test data ####
+data <- read_csv("data/raw_data/simulation.csv")
+
+
+# Test for negative numbers
+test1 <-
+data$num_of_marriage |> min() >=0
+
+# Test for NAs
+test2 <-
+  sum(is.na(data)) == 0
+
+print(test1)
+print(test2)
